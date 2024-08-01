@@ -1,4 +1,5 @@
 requests_toolbelt
+requests
 https://github.com/KurimuzonAkuma/pyrogram/archive/refs/tags/v2.1.23.zip
 TgCrypto
 telegraph[aio]
