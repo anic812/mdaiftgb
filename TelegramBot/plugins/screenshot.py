@@ -21,7 +21,7 @@ from TelegramBot.helpers.filters import check_auth
 
 
 
-async def slowpics_collection(message, file_name, path):
+async def slowpics_collection(message, file_name, path, message: Message):
     """
     Uploads image(s) to https://slow.pics/ from a specified directory.
     """
@@ -31,38 +31,7 @@ async def slowpics_collection(message, file_name, path):
 
     img_list = os.listdir(path)
     img_list = sorted(img_list)
-
-    data = {
-        "collectionName": f"{unquote(file_name)}",
-        "hentai": "false",
-        "optimizeImages": "false",
-        "public": "false"}
-
-    for i in range(0, len(img_list)):
-        data[f"images[{i}].name"] = img_list[i].split(".")[0]
-        data[f"images[{i}].file"] = (
-            img_list[i],
-            open(f"{path}/{img_list[i]}", "rb"),
-            "image/png")
-
-    with requests.Session() as client:
-        client.get("https://slow.pics/api/collection")
-        files = MultipartEncoder(data)
-        length = str(files.len)
-
-        headers = {
-            "Content-Length": length,
-            "Content-Type": files.content_type,
-            "Origin": "https://slow.pics/",
-            "Referer": "https://slow.pics/collection",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36",
-            "X-XSRF-TOKEN": client.cookies.get_dict()["XSRF-TOKEN"]}
-
-        response = client.post(
-            "https://slow.pics/api/collection", data=files, headers=headers)
-        await msg.edit(
-            f"File Name: `{unquote(file_name)}`\n\nFrames: https://slow.pics/c/{response.text}",
-            disable_web_page_preview=True)
+    message.reply_media_group(media=img_list)
 
 
 async def generate_ss_from_file(
@@ -93,7 +62,7 @@ async def generate_ss_from_file(
         loop_count -= 1
 
     await replymsg.delete()
-    await slowpics_collection(message, file_name, path=f"{os.getcwd()}/{download_path}")
+    await slowpics_collection(message, file_name, path=f"{os.getcwd()}/{download_path}",message)
 
     shutil.rmtree(download_path)
     os.remove(f"download/{file_name}")
