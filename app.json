@@ -7,7 +7,8 @@
         "telegram",
         "telegram-bot",
         "mediainfo",
-        "spectrogram-bot"
+        "spectrogram-bot",
+        "appleMusicInfo"
     ],
     "env": {
     },
