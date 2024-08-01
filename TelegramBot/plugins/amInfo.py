@@ -37,8 +37,8 @@ async def apple_music_handler(client: Client, message: Message):
 async def updateToken():
     async with httpx.AsyncClient() as client:
         response = await client.get("https://music.apple.com/us/album/positions-deluxe-edition/1553944254")
-        jspath = re.search(r'crossorigin src="(/assets/index.+?\.js)"', response.text)
-        my = await client.get("https://music.apple.com" + jspath)
+        jspath = re.search("crossorigin src=\"(/assets/index.+?\.js)\"", response.text).group(1)
+        my = await client.get("https://music.apple.com/" + jspath)
         tkn = re.search(r"(eyJhbGc.+?)\"", my.text).group(1)
         headers['Authorization'] = f'Bearer {tkn}'
 
