@@ -61,7 +61,7 @@ RUN locale-gen en_US.UTF-8 && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 COPY requirements.txt .
 
-RUN python3 -m pip install --no-cache-dir -r requirements.txt
+RUN python3 -m pip3 install --no-cache-dir -r requirements.txt
 
 COPY . .
 
