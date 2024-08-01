@@ -10,7 +10,7 @@ except:
 
 logging.basicConfig(
     level=logging.INFO,
-    format="[%(asctime)s %(filename)s->%(funcName)s():%(lineno)s]%(levelname)s: %(message)s"
+    format="[%(asctime)s %(filename)s->%(funcName)s():%(lineno)s]%(levelname)s: %(message)s",
     datefmt="%d-%b-%y %H:%M:%S",
     handlers=[
         RotatingFileHandler("logs.txt", mode="w+", maxBytes=5000000, backupCount=10),
