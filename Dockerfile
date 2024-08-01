@@ -6,7 +6,8 @@ WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     git \
-    python3 \
+    python3.11.8 \
+    python3-pip \
     libcurl3-gnutls \
     libmms0 \
     libzen0v5 \
@@ -20,9 +21,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     megatools \
    && rm -rf /var/lib/apt/lists/*
 
-RUN wget https://bootstrap.pypa.io/get-pip.py && \
-    python3.12 get-pip.py && \
-    rm get-pip.py
 
 RUN wget -q -O /tmp/libmediainfo0v5.deb https://mediaarea.net/download/binary/libmediainfo0/24.06/libmediainfo0v5_24.06-1_amd64.Ubuntu_24.04.deb \
   && dpkg -i /tmp/libmediainfo0v5.deb \
