@@ -20,10 +20,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     megatools \
   && rm -rf /var/lib/apt/lists/*
 
-RUN wget -q -O /tmp/libzen0v5.deb https://mediaarea.net/download/binary/libzen0/0.4.41/libzen0v5_0.4.41-1_amd64.Ubuntu_24.04.deb \
-  && dpkg -i /tmp/libzen0v5.deb \
-  && rm /tmp/libzen0v5.deb
-
 RUN wget -q -O /tmp/libmediainfo0v5.deb https://mediaarea.net/download/binary/libmediainfo0/24.06/libmediainfo0v5_24.06-1_amd64.Ubuntu_24.04.deb \
   && dpkg -i /tmp/libmediainfo0v5.deb \
   && rm /tmp/libmediainfo0v5.deb
