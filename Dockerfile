@@ -5,8 +5,6 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US:en TZ=Asia/Kolkata
 WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
-    python3-pip \
-    python3 \
     git \
     libcurl3-gnutls \
     libmms0 \
@@ -19,7 +17,33 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     sox \
     locales \
     megatools \
-  && rm -rf /var/lib/apt/lists/*
+    software-properties-common \
+    wget \
+    build-essential \
+    libssl-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    curl \
+    libncursesw5-dev \
+    xz-utils \
+    tk-dev \
+    libxml2-dev \
+    libxmlsec1-dev \
+    libffi-dev \
+    liblzma-dev \
+   && rm -rf /var/lib/apt/lists/*
+
+RUN add-apt-repository ppa:deadsnakes/ppa && \
+    apt-get update && \
+    apt-get install -y python3.11 python3.11-venv python3.11-distutils
+
+# Install pip for Python 3.11
+RUN wget https://bootstrap.pypa.io/get-pip.py && \
+    python3.11 get-pip.py && \
+    rm get-pip.py
+ 
 
 RUN wget -q -O /tmp/libmediainfo0v5.deb https://mediaarea.net/download/binary/libmediainfo0/24.06/libmediainfo0v5_24.06-1_amd64.Ubuntu_24.04.deb \
   && dpkg -i /tmp/libmediainfo0v5.deb \
