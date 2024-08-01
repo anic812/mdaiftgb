@@ -7,7 +7,6 @@ WORKDIR /usr/src/app
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     python3-pip \
     git \
-    libtinyxml2-9 \
     libcurl3-gnutls \
     libmms0 \
     libzen0v5 \
