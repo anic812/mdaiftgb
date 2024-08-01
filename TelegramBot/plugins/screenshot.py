@@ -269,7 +269,7 @@ async def screenshot(client: Client, message: Message):
     frame_count = int(match[2]) if match and match[2].isdigit() else 10
     frame_count = min(frame_count, 20)
 
-    match = re.search("--time=(\d{2}:\d{2}:\d{2})", user_input)
+    match = re.search(r"--time=(\d{2}:\d{2}:\d{2})", user_input)
     time = match.group(1) if match else None
 
     hdr: bool = bool(re.search(r"(-|--)(hdr|HDR)", user_input))
