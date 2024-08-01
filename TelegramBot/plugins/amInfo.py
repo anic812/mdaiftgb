@@ -52,9 +52,9 @@ def format_duration(duration_in_millis):
 async def amInfo(message: Message):
     result = apple_rx.search(message.text)
     if not result:
-        message.reply("`Improper Apple Music album URL!`")
+        await message.reply("`Improper Apple Music album URL!`")
         return
-    message.reply("`Processing Apple Music Album`")
+    await message.reply("`Processing Apple Music Album`")
     region, id_ = result.groups()
 
     async with httpx.AsyncClient() as client:
@@ -124,15 +124,15 @@ Mastered for iTunes: **{adm}**
 
 {copyright_}
 """
-    message.reply_photo(photo=photo.format(w=w, h=h), caption=text)
+    await message.reply_photo(photo=photo.format(w=w, h=h), caption=text)
 
 
 async def amvInfo(message: Message):
     result = applemv_rx.search(message.text)
     if not result:
-        message.reply("`Improper Apple Music album URL!`")
+        await message.reply("`Improper Apple Music album URL!`")
         return
-    message.reply("`Processing Apple Music Video`")
+    await message.reply("`Processing Apple Music Video`")
     region, id_ = result.groups()
 
     async with httpx.AsyncClient() as client:
@@ -178,4 +178,4 @@ ISRC        : {isrc}
 Formats     : **{format_}**
 Max Resolution: **{maxres}**
 """
-    message.reply_photo(photo=photo.format(w=w, h=h), caption=text)
+    await message.reply_photo(photo=photo.format(w=w, h=h), caption=text)
