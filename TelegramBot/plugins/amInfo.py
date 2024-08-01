@@ -112,7 +112,7 @@ async def amInfo(message: Message):
         formatted_line = f"{track['attributes']['trackNumber']} {name} {duration}"
         formatted_lines.append(formatted_line)
     formatted_code = "\n".join([line for line in formatted_lines])
-    trkplst = katbin_paste(formatted_code)
+    trkplst = await katbin_paste(formatted_code)
     print(trkplst, 'ok')
     text = f"""Album : **[{abn}]({url}) | [3000x3000]({artwork})**
 Artist : **{artist}**
