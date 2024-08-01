@@ -28,10 +28,6 @@ RUN wget -q -O /tmp/libtinyxml2-9.deb http://th.archive.ubuntu.com/ubuntu/pool/u
   && dpkg -i /tmp/libtinyxml2-9.deb \
   && rm /tmp/libtinyxml2-9.deb
 
-RUN wget -q -O /tmp/libmediainfo-dev.deb http://th.archive.ubuntu.com/ubuntu/pool/universe/libm/libmediainfo/libmediainfo-dev_24.01+dfsg-1build2_amd64.deb \
-  && dpkg -i /tmp/libmediainfo-dev.deb \
-  && rm /tmp/libmediainfo-dev.deb
-
 RUN wget -q -O /tmp/mediainfo.deb https://mediaarea.net/download/binary/mediainfo/24.06/mediainfo_24.06-1_amd64.Ubuntu_24.04.deb \
   && dpkg -i /tmp/mediainfo.deb \
   && rm /tmp/mediainfo.deb
@@ -44,6 +40,6 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN chmod +x start
+RUN chmod +x start.sh
 
-CMD ["bash", "start"]
+CMD ["bash", "start.sh"]
