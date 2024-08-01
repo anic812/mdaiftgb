@@ -3,8 +3,7 @@ FROM archlinux:latest
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US:en TZ=Asia/Kolkata
 
 RUN pacman -Syyu --noconfirm && \
-    pacman -S --noconfirm python-pip zstd p7zip gcc git ffmpeg mediainfo libmediainfo libzen sox lame flac libmad libvorbis libmediainfo tinyxml2&& \
-    pacman -Syu sox libzen mediainfo --needed && \
+    pacman -S --noconfirm python-pip zstd p7zip gcc git ffmpeg mediainfo libmediainfo libzen sox lame flac libmad libvorbis libmediainfo tinyxml2 --needed && \
     python3 -m venv /venv && \
     pacman -Scc --noconfirm
 
