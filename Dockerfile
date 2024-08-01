@@ -20,23 +20,23 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     megatools \
   && rm -rf /var/lib/apt/lists/*
 
-RUN wget -q -O /tmp/libzen0v5.deb http://th.archive.ubuntu.com/ubuntu/pool/universe/libz/libzen/libzen0v5_0.4.40-1_amd64.deb \
+RUN wget -q -O /tmp/libzen0v5.deb https://mediaarea.net/download/binary/libzen0/0.4.41/libzen0v5_0.4.41-1_amd64.Ubuntu_24.04.deb \
   && dpkg -i /tmp/libzen0v5.deb \
   && rm /tmp/libzen0v5.deb
 
-RUN wget -q -O /tmp/libmediainfo0v5.deb http://ftp.de.debian.org/debian/pool/main/libm/libmediainfo/libmediainfo0v5_22.12+dfsg-1_amd64.deb \
+RUN wget -q -O /tmp/libmediainfo0v5.deb https://mediaarea.net/download/binary/libmediainfo0/24.06/libmediainfo0v5_24.06-1_amd64.Ubuntu_24.04.deb \
   && dpkg -i /tmp/libmediainfo0v5.deb \
   && rm /tmp/libmediainfo0v5.deb
 
-RUN wget -q -O /tmp/libtinyxml2-6a.deb http://kr.archive.ubuntu.com/ubuntu/pool/universe/t/tinyxml2/libtinyxml2-6a_7.0.0+dfsg-1build1_amd64.deb \
-  && dpkg -i /tmp/libtinyxml2-6a.deb \
-  && rm /tmp/libtinyxml2-6a.deb
+RUN wget -q -O /tmp/libtinyxml2-9.deb http://th.archive.ubuntu.com/ubuntu/pool/universe/t/tinyxml2/libtinyxml2-9_9.0.0+dfsg-3.1_amd64.deb \
+  && dpkg -i /tmp/libtinyxml2-9.deb \
+  && rm /tmp/libtinyxml2-9.deb
 
-RUN wget -q -O /tmp/libmediainfo-dev.deb http://ftp.de.debian.org/debian/pool/main/libm/libmediainfo/libmediainfo-dev_22.12+dfsg-1_amd64.deb \
+RUN wget -q -O /tmp/libmediainfo-dev.deb http://th.archive.ubuntu.com/ubuntu/pool/universe/libm/libmediainfo/libmediainfo-dev_24.01+dfsg-1build2_amd64.deb \
   && dpkg -i /tmp/libmediainfo-dev.deb \
   && rm /tmp/libmediainfo-dev.deb
 
-RUN wget -q -O /tmp/mediainfo.deb https://mediaarea.net/download/binary/mediainfo/22.12/mediainfo_22.12-1_amd64.xUbuntu_20.04.deb \
+RUN wget -q -O /tmp/mediainfo.deb https://mediaarea.net/download/binary/mediainfo/24.06/mediainfo_24.06-1_amd64.Ubuntu_24.04.deb \
   && dpkg -i /tmp/mediainfo.deb \
   && rm /tmp/mediainfo.deb
 
