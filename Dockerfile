@@ -17,27 +17,11 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     sox \
     locales \
     megatools \
-    software-properties-common \
-    wget \
-    build-essential \
-    libssl-dev \
-    zlib1g-dev \
-    libbz2-dev \
-    libreadline-dev \
-    libsqlite3-dev \
-    curl \
-    libncursesw5-dev \
-    xz-utils \
-    tk-dev \
-    libxml2-dev \
-    libxmlsec1-dev \
-    libffi-dev \
-    liblzma-dev \
    && rm -rf /var/lib/apt/lists/*
 
 RUN add-apt-repository ppa:deadsnakes/ppa && \
     apt-get update && \
-    apt-get install -y python3.11 python3.11-venv python3.11-distutils
+    apt-get install -y python3.11.8
 
 # Install pip for Python 3.11
 RUN wget https://bootstrap.pypa.io/get-pip.py && \
