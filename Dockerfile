@@ -6,6 +6,7 @@ WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     python3-pip \
+    python3 \
     git \
     libcurl3-gnutls \
     libmms0 \
@@ -36,7 +37,7 @@ RUN locale-gen en_US.UTF-8 && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 COPY requirements.txt .
 
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
