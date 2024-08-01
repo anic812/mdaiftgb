@@ -19,7 +19,10 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     locales \
     megatools \
    && rm -rf /var/lib/apt/lists/*
- 
+
+RUN wget https://bootstrap.pypa.io/get-pip.py && \
+    python3.12 get-pip.py && \
+    rm get-pip.py
 
 RUN wget -q -O /tmp/libmediainfo0v5.deb https://mediaarea.net/download/binary/libmediainfo0/24.06/libmediainfo0v5_24.06-1_amd64.Ubuntu_24.04.deb \
   && dpkg -i /tmp/libmediainfo0v5.deb \
@@ -37,7 +40,6 @@ RUN locale-gen en_US.UTF-8 && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 COPY requirements.txt .
 
-RUN python3.12 -m ensurepip --upgrade
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
