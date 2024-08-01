@@ -9,7 +9,7 @@ RUN pacman -Syyu --noconfirm && \
     cd yay && \
     makepkg -si --noconfirm && \
     cd .. && rm -rf yay && \
-    yay -S libmediainfo tinyxml2 --noconfirm
+    yay -S libmediainfo tinyxml2 --noconfirm \
     python3 -m venv /venv && \
     pacman -Scc --noconfirm
 
