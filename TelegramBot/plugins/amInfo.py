@@ -35,12 +35,11 @@ async def apple_music_handler(client: Client, message: Message):
     
 
 async def updateToken():
-    async with httpx.AsyncClient() as client:
-        response = await client.get("https://music.apple.com/us/album/positions-deluxe-edition/1553944254")
-        jspath = re.search("crossorigin src=\"(/assets/index.+?\.js)\"", response.text).group(1)
-        my = await client.get("https://music.apple.com/" + jspath)
-        tkn = re.search(r"(eyJhbGc.+?)\"", my.text).group(1)
-        headers['Authorization'] = f'Bearer {tkn}'
+    response = requests.get("https://music.apple.com/us/album/positions-deluxe-edition/1553944254")
+    jspath = re.search("crossorigin src=\"(/assets/index.+?\.js)\"", response.text).group(1)
+    my = requests.get("https://music.apple.com"+jspath)
+    tkn = re.search(r"(eyJhbGc.+?)\"", my.text).group(1)
+    headers['Authorization'] = f'Bearer {tkn}'
 
 def format_duration(duration_in_millis):
     duration_in_seconds = duration_in_millis / 1000
