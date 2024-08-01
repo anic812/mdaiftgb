@@ -38,7 +38,11 @@ RUN locale-gen en_US.UTF-8 && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 COPY requirements.txt .
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN . /opt/venv/bin/activate && \
+    pip install --no-cache-dir -r requirements.txt && \
+    deactivate
+
+ENV PATH="/opt/venv/bin:$PATH"
 
 COPY . .
 
