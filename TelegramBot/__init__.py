@@ -4,7 +4,10 @@ import json
 import time
 import shutil
 from asyncio import get_event_loop, new_event_loop, set_event_loop
-import uvloop
+try :
+  import uvloop
+except:
+   pass
 import requests
 
 from pyrogram import Client
@@ -12,7 +15,10 @@ from TelegramBot.config import *
 from TelegramBot.logging import LOGGER
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-uvloop.install()
+try:
+  uvloop.install()
+except:
+  LOGGER(__name__).info("NO uvloop installed")
 LOGGER(__name__).info("Starting TelegramBot....")
 BotStartTime = time.time()
 
