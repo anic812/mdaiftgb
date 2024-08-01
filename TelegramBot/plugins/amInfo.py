@@ -1,6 +1,7 @@
 import re
 import m3u8
 import httpx
+import requests
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from TelegramBot.helpers.pasting_services import katbin_paste
