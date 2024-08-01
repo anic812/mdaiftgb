@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     git \
-    python3.11.8 \
+    python3.11 \
     python3-pip \
     libcurl3-gnutls \
     libmms0 \
