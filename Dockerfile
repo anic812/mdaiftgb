@@ -4,7 +4,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US:en TZ=Asia/Kolkata
 
 WORKDIR /usr/src/app
 
-RUN apt-get update && apt-get upgrade && apt-get install -y \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     python3-pip \
     git \
     libtinyxml2-9 \
