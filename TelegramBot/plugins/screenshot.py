@@ -21,7 +21,7 @@ from TelegramBot.helpers.filters import check_auth
 
 
 
-async def slowpics_collection(message, file_name, path, message: Message):
+async def slowpics_collection(message, file_name, path):
     """
     Uploads image(s) to https://slow.pics/ from a specified directory.
     """
