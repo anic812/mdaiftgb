@@ -62,7 +62,7 @@ async def generate_ss_from_file(
         loop_count -= 1
 
     await replymsg.delete()
-    await slowpics_collection(message, file_name, path=f"{os.getcwd()}/{download_path}",message)
+    await slowpics_collection(message, file_name, path=f"{os.getcwd()}/{download_path}")
 
     shutil.rmtree(download_path)
     os.remove(f"download/{file_name}")
