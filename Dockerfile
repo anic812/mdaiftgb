@@ -6,6 +6,7 @@ WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     git \
+    python3 \
     libcurl3-gnutls \
     libmms0 \
     libzen0v5 \
@@ -18,15 +19,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     locales \
     megatools \
    && rm -rf /var/lib/apt/lists/*
-
-RUN add-apt-repository ppa:deadsnakes/ppa && \
-    apt-get update && \
-    apt-get install -y python3.11.8
-
-# Install pip for Python 3.11
-RUN wget https://bootstrap.pypa.io/get-pip.py && \
-    python3.11 get-pip.py && \
-    rm get-pip.py
  
 
 RUN wget -q -O /tmp/libmediainfo0v5.deb https://mediaarea.net/download/binary/libmediainfo0/24.06/libmediainfo0v5_24.06-1_amd64.Ubuntu_24.04.deb \
