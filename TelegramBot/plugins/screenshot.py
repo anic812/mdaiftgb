@@ -31,7 +31,8 @@ async def slowpics_collection(message, file_name, path):
 
     img_list = os.listdir(path)
     img_list = sorted(img_list)
-    message.reply_media_group(media=img_list)
+    await message.reply_media_group(media=img_list)
+    await msg.delete()
 
 
 async def generate_ss_from_file(
