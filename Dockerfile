@@ -16,7 +16,8 @@ WORKDIR /app
 RUN git clone https://github.com/anic812/mdaiftgb.git /app && \
     pip3 install -U -r requirements.txt
 
-RUN locale-gen en_US.UTF-8 && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+RUN sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && sudo locale-gen && echo -e 'LANG=en_US.UTF-8\nLC_ALL=en_US.UTF-8' | tee /etc/locale.conf
+
 
 RUN chmod +x start.sh
 
