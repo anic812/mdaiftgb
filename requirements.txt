@@ -11,7 +11,7 @@ cachetools
 aiofiles
 requests
 urllib3
-#uvloop
+uvloop
 httpx
 bs4
 m3u8
